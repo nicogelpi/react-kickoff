@@ -1,0 +1,40 @@
+{
+  "name": "react-kickoff",
+  "version": "1.0.0",
+  "description": "Quickly start developing an react application",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Negan1911/react-kickoff.git"
+  },
+  "keywords": [
+    "React",
+    "kickoff",
+    "negan1911",
+    "start"
+  ],
+  "author": "Nahuel A. Veron <nahuelav96@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Negan1911/react-kickoff/issues"
+  },
+  "homepage": "https://github.com/Negan1911/react-kickoff#readme",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.13.0",
+    "browserify": "^13.0.1",
+    "connect-history-api-fallback": "^1.2.0",
+    "eslint": "^2.11.1",
+    "eslint-plugin-react": "^5.1.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.3.1",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  }
+}
