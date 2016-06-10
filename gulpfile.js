@@ -13,13 +13,14 @@ const reload = browserSync.reload;
 
 // Define Variables
 const mainSass = './Sources/*.scss';
+const initFolder = './Sources/';
 const initScript = 'main.js';
 const watch = './Sources/**/*';
 const dest = './static/';
 
 function buildScript(file, watch) {
   var props = {
-    entries: ['./scripts/' + file],
+    entries: [initFolder + file],
     debug : true,
     cache: {},
     packageCache: {},
@@ -41,7 +42,7 @@ function buildScript(file, watch) {
         this.emit('end');
       })
       .pipe(source(file))
-      .pipe(gulp.dest('./build/'))
+      .pipe(gulp.dest(dest))
       .pipe(reload({stream:true}));
   }
 
