@@ -36,7 +36,5 @@ bower_components
 .node_repl_history
 
 # Compiled Files
-static/app.min-debug.js
-static/app.min.js
-static/tpl.js
+static/app.js
 static/style.css

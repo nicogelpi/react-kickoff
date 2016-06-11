@@ -14,7 +14,7 @@ const reload = browserSync.reload;
 // Define Variables
 const mainSass = './Sources/*.scss';
 const initFolder = './Sources/';
-const initScript = 'main.js';
+const initScript = 'app.js';
 const watch = './Sources/**/*';
 const dest = './static/';
 
@@ -24,7 +24,9 @@ function buildScript(file, watch) {
     debug : true,
     cache: {},
     packageCache: {},
-    transform:  [babelify.configure({stage : 0 })]
+    transform:  [babelify.configure({
+      presets: ['es2015', 'react']
+    })]
   };
 
   // watchify() if watch requested, otherwise run browserify() once

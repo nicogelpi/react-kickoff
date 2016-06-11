@@ -4,8 +4,7 @@
         "commonjs": true,
         "es6": true
     },
-    "extends": ["eslint:recommended", "plugin:react/recommended"],
-    "installedESLint": true,
+    "extends": ["plugin:react/recommended", "eslint:recommended"],
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
