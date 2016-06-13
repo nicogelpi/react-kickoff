@@ -88,7 +88,7 @@ gulp.task('watch', function() {
   return buildScript(initScript, true);
 });
 
-gulp.task('dev', ['browser-sync', 'watch']);
+gulp.task('dev', ['build', 'browser-sync', 'watch']);
 
 gulp.task('build', ['minify-styles', 'minify-scripts']);
 
