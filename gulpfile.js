@@ -12,11 +12,11 @@ const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 
 // Define Variables
-const mainSass = './Sources/*.scss';
-const initFolder = './Sources/';
+const mainSass = 'Sources/*.scss';
+const initFolder = 'Sources/';
 const initScript = 'app.js';
-const watch = './Sources/**/*';
-const dest = './static/';
+const watch = 'Sources/**/*';
+const dest = 'static/';
 
 function buildScript(file, watch) {
   var props = {
