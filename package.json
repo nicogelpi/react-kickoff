@@ -24,11 +24,10 @@
   "homepage": "https://github.com/Negan1911/react-kickoff#readme",
   "devDependencies": {
     "babel": "^6.5.2",
+    "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
-    "babelify": "^7.3.0",
     "browser-sync": "^2.13.0",
-    "browserify": "^13.0.1",
     "connect-history-api-fallback": "^1.2.0",
     "eslint": "^2.11.1",
     "eslint-plugin-react": "^5.1.1",
@@ -36,8 +35,8 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-notify": "^2.2.0",
     "gulp-sass": "^2.3.1",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0"
+    "webpack": "^1.13.2",
+    "webpack-stream": "^3.2.0"
   },
   "dependencies": {
     "react": "^15.1.0",
