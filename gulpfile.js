@@ -2,9 +2,7 @@ const gulp = require('gulp');
 const webpack = require('webpack-stream');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
-const historyApiFallback = require('connect-history-api-fallback');
-
-const browserSync = require('browser-sync');
+const liteServer = require('lite-server');
 
 // Define Variables
 const webpackFile = './webpack.config.js';
@@ -34,11 +32,8 @@ gulp.task('webpack', function() {
 });
 
 gulp.task('browser-sync', function() {
-  browserSync({
-    server : {},
-    middleware : [ historyApiFallback() ],
-    ghostMode: false
-  });
+  liteServer.defaults.files = [ dest + '*.*'];
+  liteServer.server();
 });
 
 gulp.task('watch', function() {
