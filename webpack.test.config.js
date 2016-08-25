@@ -3,6 +3,12 @@ const path = require('path');
 const APP_DIR = path.resolve(__dirname, 'src');
 module.exports = {
   devtool: 'inline-source-map',
+  externals: {
+    'jsdom': 'window',
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': 'window'
+  },
   module: {
     loaders: [
       {
@@ -21,6 +27,9 @@ module.exports = {
           ]
         }
       }
+    ],
+    noParse: [
+      /node_modules\/sinon\//
     ]
   }
 };
