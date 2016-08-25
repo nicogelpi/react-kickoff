@@ -5,11 +5,17 @@ chai.use(chaiAsPromised);
 
 describe('Start Module Tests', function() {
 
+  let reactLogo = {
+    mainElement: function() {
+      return element(by.css('.react-logo'));
+    }
+  };
+
   beforeEach(function() {
     browser.get('http://localhost:3000');
   });
 
-  it('Should have React Entry Point', function() {
-    chai.expect(element(by.css('body > div')).isPresent()).to.eventually.be.true;
+  it('Should Have an React Logo', function() {
+    chai.expect(reactLogo.mainElement().isPresent()).to.eventually.be.true;
   });
 });
