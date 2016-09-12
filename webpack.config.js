@@ -17,10 +17,8 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         include : APP_DIR,
         loader : 'babel-loader',
-        cacheable: true,
         query: {
-          retainLines: true,
-          cacheDirectory: true
+          retainLines: true
         }
       }
     ]
