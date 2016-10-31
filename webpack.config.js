@@ -5,7 +5,7 @@ const APP_DIR = path.resolve(__dirname, 'src');
 
 module.exports = {
   devtool: 'inline-source-map',
-  entry: APP_DIR + '/index.js',
+  entry: ['babel-polyfill', APP_DIR + '/index.js'],
   output: {
     path: BUILD_DIR,
     filename: 'app.js'
