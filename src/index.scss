@@ -7,8 +7,8 @@ $font-link: #2980b9;
 @import 'ReactWelcome/ReactWelcome';
 @import 'ReactWelcome/ReactLogo/ReactLogo';
 
-// Import from bower
-@import "bower_components/normalize-css/normalize.css";
+// Import from npm
+@import '~normalize.css';
 
 body {
   background: $background-color;

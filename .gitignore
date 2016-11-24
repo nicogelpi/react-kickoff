@@ -36,6 +36,5 @@ bower_components
 .node_repl_history
 
 # Compiled Files
-dist/app.js
-dist/app.js.map
-dist/style.css
+dist/bundle.js
+dist/bundle.css
