@@ -12,6 +12,10 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /sinon\.js$/,
+        loader: 'imports?define=>false,require=>false'
+      },
+      {
         test : /\.js?/,
         exclude: /(node_modules|bower_components)/,
         loader : 'babel-loader',
@@ -27,9 +31,11 @@ module.exports = {
           ]
         }
       }
-    ],
-    noParse: [
-      /node_modules\/sinon\//
     ]
+  },
+  resolve: {
+    alias: {
+      sinon: 'sinon/pkg/sinon.js'
+    }
   }
 };

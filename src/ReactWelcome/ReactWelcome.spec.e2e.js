@@ -21,7 +21,7 @@ describe('Start Module Tests', function() {
   };
 
   beforeEach(function() {
-    browser.get('http://localhost:3000');
+    browser.get(`${browser.params.baseServer}`);
   });
 
   it('Should have a Title', function() {

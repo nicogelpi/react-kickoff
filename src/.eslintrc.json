@@ -1,12 +1,19 @@
 {
   "env": {
+    "browser": true,
     "commonjs": true,
     "es6": true,
     "node": true,
-    "protractor": true
+    "protractor": true,
+    "mocha": true
   },
-  "extends": ["eslint:recommended"],
+  "plugins": ["react"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
     "sourceType": "module"
   },
   "rules": {

@@ -1,7 +1,7 @@
 module.exports = function(config) {
   config.set({
     basePath: './',
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha'],
     reporters: ['progress', 'coverage'],
     files: [
       'src/index.js',
@@ -15,6 +15,11 @@ module.exports = function(config) {
     coverageReporter: {
       type : 'html',
       dir : 'coverage/'
+    },
+    client: {
+      mocha: {
+        reporter: 'html'
+      }
     },
     browsers: ['Chrome']
   });
