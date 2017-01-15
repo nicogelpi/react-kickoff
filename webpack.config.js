@@ -20,7 +20,10 @@ module.exports = {
     loaders: [
       {
         test: /\.(jpe?g|png|gif|svg)$/i, 
-        loader: 'file-loader?name=/res/[name].[ext]'
+        loaders: [
+          'file-loader?name=/res/[name].[ext]',
+          'image-webpack?{optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}, mozjpeg: {quality: 65}}' 
+        ]
       },
       {
         test: /\.scss$/,
