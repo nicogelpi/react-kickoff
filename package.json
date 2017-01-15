@@ -6,6 +6,7 @@
   "scripts": {
     "test": "./node_modules/karma/bin/karma start",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "build": "node ./node_modules/webpack/bin/webpack.js",
     "webdriver": "./node_modules/webdriver-manager/bin/webdriver-manager update && ./node_modules/webdriver-manager/bin/webdriver-manager start",
     "e2e": "node ./node_modules/protractor/bin/protractor protractor.conf.js"
   },
@@ -41,6 +42,7 @@
     "eslint-plugin-react": "^5.1.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "image-webpack-loader": "^3.1.0",
     "imports-loader": "^0.7.0",
     "isparta": "^4.0.0",
     "istanbul": "^0.4.5",
