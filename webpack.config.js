@@ -35,10 +35,16 @@ module.exports = {
       }
     ]
   },
-  eslint: {
-    failOnError: true
+  plugins: [ new ExtractTextPlugin('bundle.css')],
+  eslint: { failOnError: true},
+  devServer: { inline: true },
+  resolveLoader: { 
+    fallback: path.join(__dirname, 'node_modules') 
   },
-  plugins: [
-    new ExtractTextPlugin('bundle.css')
-  ]
+  resolve: {
+    alias: {
+      '~': path.resolve(APP_DIR)
+    },
+    fallback: path.join(__dirname, 'node_modules')
+  }
 };
