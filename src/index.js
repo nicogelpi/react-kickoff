@@ -9,7 +9,6 @@ document.body.appendChild(mountPoint);
 
 ReactDOM.render((
   <Router history={browserHistory}>
-    <Route path="/" component={ReactWelcome}>
-    </Route>
+    {ReactWelcome}
   </Router>),
 mountPoint);

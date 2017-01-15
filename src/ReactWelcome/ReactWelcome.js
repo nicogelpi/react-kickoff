@@ -1,8 +1,9 @@
 import './ReactWelcome.scss';
 import React from 'react';
 import ReactLogo from './ReactLogo/ReactLogo';
+import {Route} from 'react-router';
 
-export default class ReactWelcome extends React.Component {
+class ReactWelcome extends React.Component {
   render() {
     return (
       <article className="kickoff-start">
@@ -22,3 +23,7 @@ export default class ReactWelcome extends React.Component {
     window.console.log('Welcome to react-kickoff!');
   }
 }
+
+export default (
+  <Route path="/" component={ReactWelcome}></Route>
+);
