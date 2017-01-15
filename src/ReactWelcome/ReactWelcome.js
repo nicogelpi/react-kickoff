@@ -1,3 +1,4 @@
+import './ReactWelcome.scss';
 import React from 'react';
 import ReactLogo from './ReactLogo/ReactLogo';
 

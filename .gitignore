@@ -38,3 +38,4 @@ bower_components
 # Compiled Files
 dist/bundle.js
 dist/bundle.css
+dist/res

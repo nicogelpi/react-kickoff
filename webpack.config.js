@@ -8,7 +8,6 @@ module.exports = {
   entry: {
     bundle: [
       'babel-polyfill',
-      APP_DIR + '/index.scss',
       APP_DIR + '/index.js'
     ]
   },
@@ -20,9 +19,13 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.(jpe?g|png|gif|svg)$/i, 
+        loader: 'file-loader?name=/res/[name].[ext]'
+      },
+      {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract([
-          'css-loader?-url&sourceMap',
+          'css-loader?sourceMap',
           'postcss-loader?sourceMap',
           'sass-loader?sourceMap'
         ])
