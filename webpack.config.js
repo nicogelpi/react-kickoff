@@ -20,6 +20,10 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.modernizrrc(\.json)?$/,
+        loader: 'modernizr!json'
+      },
+      {
         test: /\.(jpe?g|png|gif|svg)$/i, 
         loaders: [
           'file-loader?name=/res/[name].[ext]',
@@ -53,7 +57,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '~': path.resolve(APP_DIR)
+      '~': path.resolve(APP_DIR),
+      modernizr$: path.resolve(__dirname, 'modernizrrc.json')
     },
     fallback: path.join(__dirname, 'node_modules')
   }

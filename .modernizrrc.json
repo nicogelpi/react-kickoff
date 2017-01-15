@@ -1,0 +1,6 @@
+{
+  "options": [
+    "setClasses"
+  ],
+  "feature-detects": ["applicationcache", "blobconstructor", "cors", "geolocation", "history", "indexeddb", "indexeddbblob"]
+}
