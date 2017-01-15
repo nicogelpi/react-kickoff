@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BUILD_DIR = path.resolve(__dirname, 'dist');
 const APP_DIR = path.resolve(__dirname, 'src');
@@ -37,13 +38,16 @@ module.exports = {
         test : /\.jsx?/,
         exclude: /(node_modules|bower_components)/,
         include : APP_DIR,
-        loaders : ['babel-loader', 'eslint-loader']
+        loaders : ['react-hot', 'babel-loader', 'eslint-loader']
       }
     ]
   },
-  plugins: [ new ExtractTextPlugin('bundle.css')],
+  plugins: [ 
+    new webpack.HotModuleReplacementPlugin(),
+    new ExtractTextPlugin('bundle.css')
+  ],
   eslint: { failOnError: true},
-  devServer: { inline: true },
+  devServer: { hot:true, inline: true },
   resolveLoader: { 
     fallback: path.join(__dirname, 'node_modules') 
   },
