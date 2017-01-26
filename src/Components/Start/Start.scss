@@ -19,6 +19,12 @@ $font-link: #2980b9;
     color: $font-link;
     text-decoration: none;
 
+    &.crud-link {
+      display: inline-block;
+      width: 100%;
+      margin: 15px 0;
+    }
+
     &:hover,
     &:link,
     &:visited,

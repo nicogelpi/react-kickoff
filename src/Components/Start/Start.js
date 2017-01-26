@@ -1,9 +1,9 @@
-import './ReactWelcome.scss';
+import './Start.scss';
 import React from 'react';
 import ReactLogo from './ReactLogo/ReactLogo';
-import {Route} from 'react-router';
+import { Route, Link } from 'react-router';
 
-class ReactWelcome extends React.Component {
+class Start extends React.Component {
   render() {
     return (
       <article className="kickoff-start">
@@ -15,7 +15,9 @@ class ReactWelcome extends React.Component {
         <p className="warning">
           Just remember to change the files <code>bower.json</code> and <code>package.json</code> with your data!
         </p>
+        <Link to="/list" className="crud-link">See the CRUD!</Link>
       </article>
+      
     );
   }
 
@@ -24,6 +26,4 @@ class ReactWelcome extends React.Component {
   }
 }
 
-export default (
-  <Route path="/" component={ReactWelcome}></Route>
-);
+export default (<Route path="/" component={Start}></Route>);

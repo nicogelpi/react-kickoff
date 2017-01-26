@@ -7,7 +7,15 @@
   },
   "extends": ["eslint:recommended"],
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "arrowFunctions": true,
+      "classes": true,
+      "destructuring": true,
+      "spread": true,
+      "experimentalObjectRestSpread": true
+    }
   },
   "rules": {
     "indent": [

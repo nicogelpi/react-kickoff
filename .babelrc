@@ -1,4 +1,8 @@
 {
   "presets": ["react", "es2015"],
-  "plugins": ["transform-object-rest-spread", "istanbul"]
+  "plugins": ["transform-object-rest-spread", ["istanbul", {
+    "exclude": [
+      "**/*.spec.js"
+    ]
+  }]]
 }

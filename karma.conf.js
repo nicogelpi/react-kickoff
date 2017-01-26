@@ -1,3 +1,7 @@
+const webpack = require('./webpack.config');
+webpack.entry = undefined;
+webpack.output = undefined;
+
 module.exports = function(config) {
   config.set({
     basePath: './',
@@ -11,7 +15,7 @@ module.exports = function(config) {
       'src/index.js': ['webpack', 'sourcemap'],
       'src/**/*spec.js': ['webpack', 'sourcemap']
     },
-    webpack: require('./webpack.test.config.js'),
+    webpack,
     coverageReporter: {
       type : 'html',
       dir : 'coverage/'

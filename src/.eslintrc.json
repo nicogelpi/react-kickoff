@@ -10,11 +10,15 @@
   "plugins": ["react"],
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 6,
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true
-    },
-    "sourceType": "module"
+      "arrowFunctions": true,
+      "classes": true,
+      "destructuring": true,
+      "spread": true,
+      "experimentalObjectRestSpread": true
+    }
   },
   "rules": {
     "indent": [

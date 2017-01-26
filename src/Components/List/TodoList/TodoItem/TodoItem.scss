@@ -1,0 +1,30 @@
+.note {
+  margin: 10px 0;
+  background-color: #FFF;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .3);
+  padding: 6px;
+  transition: box-shadow .8s;
+
+  &:hover {
+    box-shadow: 0 4px 10px 6px rgba(0, 0, 0, .3)
+  }
+
+  h1 {
+    font-size: 1.5em;
+    margin: .3em 0;
+    font-family: 'Overpass', sans-serif;
+  }
+
+  span {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .item-delete {
+    font-family: 'Overpass', sans-serif;
+    float: right;
+    font-size: 0.7em;
+    text-decoration: none;
+    color: gray;
+    user-select: none;
+  }
+}
