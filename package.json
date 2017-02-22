@@ -34,7 +34,8 @@
     "babel-preset-react": "^6.23.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
-    "css-loader": "^0.26.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.26.1",
     "enzyme": "^2.7.1",
     "eslint": "^3.16.0",
     "eslint-loader": "^1.6.1",
@@ -69,7 +70,6 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
-    "copy-webpack-plugin": "^4.0.1",
     "node-uuid": "^1.4.7",
     "normalize.css": "^5.0.0",
     "react": "^15.4.2",
