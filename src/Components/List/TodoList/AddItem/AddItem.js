@@ -1,26 +1,26 @@
-import './AddItem.scss';
-import React from 'react';
+import './AddItem.scss'
+import React from 'react'
 
 class AddItem extends React.Component {
   constructor() {
-    super();
-    this.state = { name: '', text: '' };
+    super()
+    this.state = { name: '', text: '' }
   }
 
   change(e) {
-    this.setState({[e.target.name]: e.target.value });
+    this.setState({[e.target.name]: e.target.value })
   }
 
   validate(e) {
-    this.setState({ isValid: e.target.checkValidity() });
+    this.setState({ isValid: e.target.checkValidity() })
   }
 
   submit(e) {
-    e.preventDefault();
+    e.preventDefault()
     this.props.onAdd({
       name: this.state.name,
       text: this.state.text
-    });
+    })
   }
 
   render() {
@@ -32,12 +32,12 @@ class AddItem extends React.Component {
           <input disabled={!this.state.isValid} type="submit"></input>
         </form>
       </div>
-    );
+    )
   }
 }
 
 AddItem.propTypes = {
   onAdd: React.PropTypes.func.isRequired
-};
+}
 
-export default AddItem;
+export default AddItem

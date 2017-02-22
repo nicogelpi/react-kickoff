@@ -1,9 +1,9 @@
-import './TodoItem.scss';
-import React from 'react';
+import './TodoItem.scss'
+import React from 'react'
 
 class TodoItem extends React.Component {
   delete() {
-    this.props.onDelete(this.props.item);
+    this.props.onDelete(this.props.item)
   }
 
   render() {
@@ -13,7 +13,7 @@ class TodoItem extends React.Component {
         <h1>{this.props.item.name}</h1>
         <span>{this.props.item.text}</span>
       </div>
-    );
+    )
   }
 }
 
@@ -24,6 +24,6 @@ TodoItem.propTypes = {
     name: React.PropTypes.string,
     text: React.PropTypes.string
   })
-};
+}
 
-export default TodoItem;
+export default TodoItem

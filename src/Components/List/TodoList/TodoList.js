@@ -1,15 +1,15 @@
-import './TodoList.scss';
-import React from 'react';
-import AddItem from './AddItem/AddItem';
-import TodoItem from './TodoItem/TodoItem';
+import './TodoList.scss'
+import React from 'react'
+import AddItem from './AddItem/AddItem'
+import TodoItem from './TodoItem/TodoItem'
 
 class TodoList extends React.Component {
   onDelete(item) {
-    this.props.onDeleteTodo(item.id);
+    this.props.onDeleteTodo(item.id)
   }
 
   onAdd(data) {
-    this.props.onAddTodo(data);
+    this.props.onAddTodo(data)
   }
 
   render() {
@@ -24,7 +24,7 @@ class TodoList extends React.Component {
         </ul>
         <AddItem onAdd={this.onAdd.bind(this)}></AddItem>
       </div>
-    );
+    )
   }
 }
 
@@ -32,6 +32,6 @@ TodoList.propTypes = {
   items: React.PropTypes.array,
   onAddTodo: React.PropTypes.func,
   onDeleteTodo: React.PropTypes.func
-};
+}
 
-export default TodoList;
+export default TodoList

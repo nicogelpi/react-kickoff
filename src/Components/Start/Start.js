@@ -1,7 +1,7 @@
-import './Start.scss';
-import React from 'react';
-import ReactLogo from './ReactLogo/ReactLogo';
-import { Route, Link } from 'react-router';
+import './Start.scss'
+import React from 'react'
+import ReactLogo from './ReactLogo/ReactLogo'
+import { Route, Link } from 'react-router'
 
 class Start extends React.Component {
   render() {
@@ -18,12 +18,12 @@ class Start extends React.Component {
         <Link to="/list" className="crud-link">See the CRUD!</Link>
       </article>
       
-    );
+    )
   }
 
   componentWillMount() {
-    window.console.log('Welcome to react-kickoff!');
+    window.console.log('Welcome to react-kickoff!')
   }
 }
 
-export default (<Route path="/" component={Start}></Route>);
+export default (<Route path="/" component={Start}></Route>)

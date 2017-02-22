@@ -1,12 +1,19 @@
-const path = require('path');
-const webpack = require('webpack');
-const OfflinePlugin = require('offline-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const BUILD_DIR = path.resolve(__dirname, 'dist');
-const APP_DIR = path.resolve(__dirname, 'src');
+const path = require('path')
+const webpack = require('webpack')
+const OfflinePlugin = require('offline-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const BUILD_DIR = path.resolve(__dirname, 'dist')
+const APP_DIR = path.resolve(__dirname, 'src')
 
 module.exports = {
   devtool: 'inline-source-map',
+  devServer: {
+    contentBase: BUILD_DIR,
+    compress: true,
+    hot: true, 
+    inline: true, 
+    historyApiFallback: true 
+  },
   externals: {
     'jsdom': 'window',
     'cheerio': 'window',
@@ -26,41 +33,71 @@ module.exports = {
     chunkFilename: '[name].js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /sinon\.js$/,
-        loader: 'imports?define=>false,require=>false'
+        use: [{ 
+          loader: 'imports-loader',
+          options: {define: '>false', require: '>false'}
+        }]
       },
       {
         test: /\.modernizrrc(\.json)?$/,
-        loader: 'modernizr!json'
+        use: [{ loader: 'modernizr-loader!json'}]
       },
       {
-        test: /index.html/, 
-        loaders: [
-          'file-loader?name=/[name].[ext]'
-        ]  
+        test: /index.html/,
+        use: [{
+          loader: 'file-loader', 
+          options: {
+            name: '[name].[ext]'
+          }
+        }]
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i, 
-        loaders: [
-          'file-loader?name=/res/[name].[ext]',
-          'image-webpack?{optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}, mozjpeg: {quality: 65}}' 
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: { name: '[name].[ext]' }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              optipng: { optimizationLevel: 7 },
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
+              mozjpeg: { quality: 65 }
+            }
+          }
         ]
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract([
-          'css-loader?sourceMap',
-          'postcss-loader?sourceMap',
-          'sass-loader?sourceMap'
-        ])
+        use: ExtractTextPlugin.extract({
+          use: [
+            { loader: 'css-loader?sourceMap' },
+            { loader: 'postcss-loader?sourceMap' },
+            { loader: 'sass-loader?sourceMap' }
+          ]
+        })
       },
       {
         test : /\.jsx?/,
-        exclude: /(node_modules|bower_components)/,
         include : APP_DIR,
-        loaders : ['react-hot', 'babel-loader', 'eslint-loader']
+        use: [
+          { loader: 'react-hot-loader' },
+          { loader: 'babel-loader' },
+          {
+            loader: 'eslint-loader',
+            options: {
+              failOnError: true,
+              fix: true
+            }
+          }
+        ]
       }
     ]
   },
@@ -76,10 +113,8 @@ module.exports = {
       publicLocation: '/dist'
     })
   ],
-  eslint: { failOnError: true },
-  devServer: { hot: true, inline: true, historyApiFallback: true },
   resolveLoader: { 
-    fallback: path.join(__dirname, 'node_modules') 
+    modules: [ path.join(__dirname, 'node_modules') ]
   },
   resolve: {
     alias: {
@@ -87,6 +122,6 @@ module.exports = {
       modernizr$: path.resolve(__dirname, 'modernizrrc.json'),
       sinon: 'sinon/pkg/sinon.js'
     },
-    fallback: path.join(__dirname, 'node_modules')
+    modules: [ path.join(__dirname, 'node_modules') ]
   }
-};
+}
