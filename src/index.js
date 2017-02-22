@@ -1,36 +1,32 @@
 import './index.scss'
-import cacheWorker from 'offline-plugin/runtime'
 import React from 'react'
+import thunk from 'redux-thunk'
 import ReactDOM from 'react-dom'
+import reducers from './Reducers'
+import { Provider } from 'react-redux'
+import List from './Components/List/List'
+import Start from './Components/Start/Start'
+import compose from './Helpers/ReduxDevtools'
+import cacheWorker from 'offline-plugin/runtime'
 import { Router, browserHistory } from 'react-router'
 import LocalStorageMiddleware from './Middlewares/LocalStorage'
-import { combineReducers, createStore, compose, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
+import { combineReducers, createStore, applyMiddleware } from 'redux'
 import { routerReducer, syncHistoryWithStore } from 'react-router-redux'
-import thunk from 'redux-thunk'
-import reducers from './Reducers'
-import Start from './Components/Start/Start'
-import List from './Components/List/List'
 
 const localState = new LocalStorageMiddleware('data', ['List'])
-const composeEnhancers = (process.env.NODE_ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
 
 const store = createStore(
   combineReducers({
     ...reducers,
     routing: routerReducer
   }),
-  composeEnhancers(
-    applyMiddleware(thunk, localState.MiddleWare())
-  )
+  localState.InitialState(),
+  compose(applyMiddleware(thunk, localState.MiddleWare()))
 )
 
 if (process.env.NODE_ENV !== 'development') {
   cacheWorker.install()
 }
-
-let mountPoint = document.createElement('div')
-document.body.appendChild(mountPoint)
 
 ReactDOM.render((
   <Provider store={store}>
@@ -38,5 +34,5 @@ ReactDOM.render((
       {Start}
       {List}
     </Router>
-  </Provider>), mountPoint
+  </Provider>), document.body.appendChild(document.createElement('div'))
 )

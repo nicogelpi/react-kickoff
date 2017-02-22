@@ -6,21 +6,28 @@ export default class LocalStorageMan {
 
   MiddleWare() {
     return store => next => action => {
+      // First, we run the action
+      next(action)
+
+      // Save his state
       let originalState = store.getState()
       let state = Object.keys(originalState)
         .filter(key => this.reducerNames.includes(key))
         .reduce((prev, item) => {
-          return prev[item] = originalState[item]
+          prev[item] = originalState[item]
+          return prev
         }, {})
-        
-      console.log(state)
 
-      next(action)
-      //window.localStorage.setItem(this.keyName, )
+      window.localStorage.setItem(this.keyName, JSON.stringify(state))
     }
   }
 
   InitialState() {
-    
+    try { 
+      return JSON.parse(window.localStorage.getItem(this.keyName))
+    }
+    catch (e) {
+      return {}
+    }
   }
 }
