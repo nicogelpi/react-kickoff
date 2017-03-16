@@ -1,9 +1,8 @@
 import './Start.scss'
 import React from 'react'
 import ReactLogo from './ReactLogo/ReactLogo'
-import { Route, Link } from 'react-router'
 
-class Start extends React.Component {
+export default class Start extends React.Component {
   render() {
     return (
       <article className="kickoff-start">
@@ -15,7 +14,6 @@ class Start extends React.Component {
         <p className="warning">
           Just remember to change the files <code>bower.json</code> and <code>package.json</code> with your data!
         </p>
-        <Link to="/list" className="crud-link">See the CRUD!</Link>
       </article>
       
     )
@@ -25,5 +23,3 @@ class Start extends React.Component {
     window.console.log('Welcome to react-kickoff!')
   }
 }
-
-export default (<Route path="/" component={Start}></Route>)

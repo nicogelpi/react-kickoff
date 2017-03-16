@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "karma start",
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server",
     "build": "webpack",
     "e2e": "webdriver-manager update && webdriver-manager startprotractor protractor.conf.js"
   },

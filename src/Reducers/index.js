@@ -1,5 +1,6 @@
-import List from './List'
+import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
 
-export default {
-  List
-}
+export default combineReducers({
+  routing: routerReducer
+})
